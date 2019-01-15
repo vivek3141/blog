@@ -75,68 +75,118 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere,
-                    a globe, having the qualities of a globe, a round earth in which all the directions eventually meet,
-                    in which there is no center because every point, or none, is center — an equal earth which all men
-                    occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice,
-                    not in theory.</p>
-
-                <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no
-                    turning back from science. The early warnings about technological dangers also come from
-                    science.</p>
-
-                <p>What was most significant about the lunar voyage was not that man set foot on the Moon but that they
-                    set eye on the earth.</p>
-
-                <p>A Chinese tale tells of some men sent to harm a young girl who, upon seeing her beauty, become her
-                    protectors rather than her violators. That's how I felt seeing the Earth for the first time. I could
-                    not help but love and cherish her.</p>
-
-                <p>For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who
-                    will, the experience most certainly changes your perspective. The things that we share in our world
-                    are far more valuable than those which divide us.</p>
-
-                <h2 class="section-heading">The Final Frontier</h2>
-
-                <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it
-                    is a task to occupy the generations. And no matter how much progress one makes, there is always the
-                    thrill of just beginning.</p>
-
-                <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it
-                    is a task to occupy the generations. And no matter how much progress one makes, there is always the
-                    thrill of just beginning.</p>
-
-                <blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of
-                    tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far
-                    too little for the next ten.
-                </blockquote>
-
-                <p>Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a
-                    historical process which mankind is carrying out in accordance with the natural laws of human
-                    development.</p>
-
-                <h2 class="section-heading">Reaching for the Stars</h2>
-
-                <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size
-                    of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so
-                    fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing
-                    this has to change a man.</p>
-
-                <a href="#">
-                    <img class="img-fluid" src="../img/post-sample-image.jpg" alt="">
-                </a>
-                <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
-
-                <p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission:
-                    to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man
-                    has gone before.</p>
-
-                <p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental
-                    truth to our nature, Man must explore, and this is exploration at its greatest.</p>
-
-                <p>Placeholder text by
-                    <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
-                    <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
+                <p>
+                    What you’re seeing is my computer playing the original Super Mario Bros for the NES. In this video,
+                    I’ll be talking about what this program is, how it works and all the problems I ran into creating
+                    this program.</p>
+                <p>
+                    The brain for this program is an Artificial Neural Network or ANN. It’s a mathematical model that
+                    tries to simulate the human brain. It takes in an input and gives out an output, like any function.
+                    However, what makes an ANN so powerful is the fact that it can learn complex problems. A lot of the
+                    things you see online are based on this model, like your twitter feed or Facebook feed.</p>
+                <p>
+                    This is what a neural network looks like. It can take in any input, in this case we can use an
+                    image, and feeds out an output, which can say it’s a car. But it can’t just classify an image
+                    without any work. It must learn that the image its seeing so happens to be a car and adjust to see
+                    other cars.</p>
+                <p>
+                    This is where the learning process comes in. The most popular way of learning in neural networks is
+                    a method called backpropagation. It uses a sample data set to learn on. In this case, we could have
+                    a dataset of images and whether it’s a car or not. Then, we calculate how wrong we were and adjust
+                    the network accordingly. After going through a ton of images, we should have a decent
+                    classifier.</p>
+                <p>
+                    However, this is not always the best method. In 1994, a paper was published that describes a new
+                    method for learning that tries to mimic biological evolution. This method was called neuro
+                    evolution. It starts by randomly initializing a set of neural networks. Each network is then tested
+                    to get its score or fitness. In this case we would run the networks on our Mario level, and see
+                    which network could get the farthest. Since the networks are randomly initialized, they are bound to
+                    do terrible, however some might do ever so slightly better. These networks are selected as parents
+                    and are slightly mutated in the next generation. Some children networks might do better, and some
+                    might do worse. This process is repeated and repeated for many different generations.</p>
+                <p>
+                    Neuro evolution, although gave great results in benchmarks like the Pole Balancing benchmark, was
+                    still primitive. You’ve heard people say, “As you learn new things, your brain becomes bigger”. In
+                    this case we are using a fixed topology, which means, we define how many neurons are in between the
+                    inputs and outputs, and we define which neurons are connected. We want our neural network to grow
+                    larger and make new connections as it learns.</p>
+                <p>
+                    Researchers came up with Topology and Weight evolving Artificial Neural Networks, which altered the
+                    topology in each generation.</p>
+                <p>
+                    In 2002, a professor at the University of Austin, Texas came up with an algorithm called Neuro
+                    Evolution of Augmenting Topologies. This idea extended on TWEANNs and added features like speciation
+                    and more. In 2017, researchers at Uber showed that primitive neuro evolution is shown to be better
+                    than complex versions of popular algorithms like gradient descent.</p>
+                <p>
+                    The first thing I tried was implementing this to run flappy bird. This was easy, as I found someone
+                    who wrote a flappy bird clone that could run many birds at once. The result was a score of 123.</p>
+                <p>
+                    Now that we have the background, let’s talk about the actual program. The emulator I used is called
+                    FCEUX and is available on a variety of platforms. A lot of the emulators use a scripting language
+                    called Lua that can manipulate the emulation. In this case we can write a Lua script to give the
+                    inputs to my neural network, which I used python to write. Then we can use NEAT to evolve or neural
+                    network.</p>
+                <p>
+                    Simple, right? No.</p>
+                <p>
+                    First, I did some digging on the internet and found a prewritten Lua script that can give me my
+                    input. What’s even better, the developer wrote a gym environment to go with it, so I don’t need to
+                    go through the hassle of communicating between the python script and Lua script.</p>
+                Right after that, I struck jackpot.</p><p>
+                You see, when I tried to run my algorithm by feeding the pixel values to my neural network which would
+                mean 61,440 inputs, my computer was too slow to even initialize the networks to random values without
+                python crashing. That means, I could use cloud computing, or use principal component analysis or an
+                encoder-decoder or image processing or do some more digging to find something. By luck, I found another
+                developer of a gym environment that included a version that inputted a 16x13 matrix that looked like
+                this.</p>
+                <p>
+                    This gave me only 208 inputs which is 99.7% smaller! I experimented with cloud computing to work,
+                    however I couldn’t get it to initialize the population; it just got stuck. I decided to run it
+                    locally. There was still more optimization to do. The thing that takes the most time was running all
+                    the networks to determine their fitness. First, I decided to cut the simulation if Mario didn’t
+                    change distance for some time. Now the next one is going to hurt a lot of hardcore data science
+                    people. I decided to remove the outputs as all the buttons on the NES controller and keep only one
+                    output. This would say whether I jump or not, and I would always be moving right. Because of some
+                    dumb issues that I figured out after training, I decided to convert it into two outputs – Jump and
+                    don’t Jump. The last optimization gave a massive performance boost. I decided to take advantage of
+                    parallel computing. Basically, I would run 2 simulations at once. You would think that this would
+                    only half my time for each generation, however because of some reason I do not know, loading the
+                    game took a lot less time when I was running it parallel. To give you numbers, it took 1000 seconds
+                    per generation running them 1 at a time but took 250 seconds 2 at a time.</p>
+                <p>
+                    Now, I started training. I ran it for 100 generations and tried different values and eventually
+                    settled on some numbers and ran it. Here’s where it went wrong. My code to detect if it finished the
+                    level was wrong. My fitness function was the distance it covered. The max distance which I found on
+                    the web was 3266 for world 1 level 1. So, I said if my fitness was greater than or equal to 3266, I
+                    would stop the training and save the model. However, what I didn’t know was that the 3266 was past
+                    the flagpole and the Lua script stopped the simulation before it reached 3266. The max distance was
+                    3252. So, when I saw 3254 as the max distance pop up, I assumed it got stuck at the flagpole and
+                    wouldn’t jump over it. The program should have taken around 1000-1200 generations, but instead at
+                    generation 2284, when I was watching it, I saw Mario jump on the flagpole and the distance showed
+                    3252. Immediately, I stopped the program and changed the threshold to 3252. But, with my luck the
+                    mutations were all negative, so instead I wrote a script to keep running generation 2284 until I
+                    found the network to finish the level. This turned out amazing and I had a trained neural network
+                    that could finish 1-1.</p>
+                <p>
+                    Here is the neural network. The gray boxes are hidden layers, the blue ones are output and the
+                    circles are inputs.</p>
+                <p>
+                    Machine Learning is all about generalization. So, I decided to take the same neural network and run
+                    level 2-1 without any training on this level and see what happens.</p>
+                <p>
+                    As you can see, it doesn’t perform the best, but it could finish the level if I trained it for a day
+                    or so.</p>
+                <p>
+                    I wrote this program in python and it took me about a month. Mainly cause it took 3 weeks to train,
+                    and the effective training time was 1 week as I only trained it in the night and when I was
+                    away.</p>
+                <p>
+                    If you have any ideas, please leave them in the comments! I have 2 more project videos coming up and
+                    I will need ideas after those.</p>
+                <p>
+                    That’s about it, thank you for watching!
+                </p>
             </div>
         </div>
     </div>
