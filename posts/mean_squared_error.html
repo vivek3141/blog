@@ -11,7 +11,15 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
 
+
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'
+            async></script>
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
@@ -96,21 +104,27 @@
                     and if we have a good learning rate, we should converge to a local minimum. This brings me to the
                     first reason why we use mean squared error- because it makes J differentiable. </p>
                 <p>Let’s say we have a
-                    function y = |x|. At x=0, y is not differentiable. Since we use derivatives in gradient descent, it
+                    function $y = |x|$. At $x=0$, y is not differentiable. Since we use derivatives in gradient descent, it
                     is important that our cost function is differentiable for all x. When using mean square error, the
                     estimator and variance become linear, which gives it much nicer properties. </p>
                 <p>When I say linear, I
-                    don’t mean a function that is expressed by f(x) = mx +b. In linear algebra, a linear function is
+                    don’t mean a function that is expressed by $f(x) = mx +b$. In linear algebra, a linear function is
                     something that satisfies the following properties - It preserves addition and scalar multiplication.
-                    This basically means that f(x + y) = f(x) + f(y) and f(a * x) = a * f(x). </p>
+                    This basically means that $f(x + y) = f(x) + f(y)$ and $f(a * x) = a * f(x)$. </p>
                 <p>Another important thing is
                     that the square error is the inner product between the difference of the vectors and itself. An
                     inner product is similar to the dot product, where you project a vector along another one and add
-                    the vectors together, but there are a few rules: </p><p><ol>
-                <li>The inner product has conjugate symmetry</li><li>linear
-                    in the first argument and has positive-definiteness. </ol>The euclidean distance between two vectors is
-                    the inner product between the difference between them and itself. The mean squared error can now be
-                    defined as an inner product.</p>
+                    the vectors together, but there are a few rules: </p>
+                <p>
+                <ol>
+                    <li>The inner product has conjugate symmetry: $\langle {x, y} \rangle = \bar {\langle {y, x} \rangle}$</li>
+                <li>The inner product is linear in the first argument: $\langle {ax, y} \rangle = a\langle{x,y}\rangle$ <br>
+                $\langle {x+z, y} \rangle = \langle{x,y}\rangle + \langle{z,y}\rangle$</li>
+                <li> The linear product has positive-definiteness.</li>
+                </ol>
+                The euclidean distance between two vectors is
+                the inner product between the difference between them and itself. The mean squared error can now be
+                defined as an inner product.</p>
                 <p>
                     So there you go! That’s why we use mean square error instead of absolute value. It’s mostly
                     conveniences, which actually help quite a lot. Thanks for watching!</p>
