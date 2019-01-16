@@ -17,6 +17,7 @@
   });
 
 
+
     </script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'
             async></script>
@@ -104,7 +105,8 @@
                     and if we have a good learning rate, we should converge to a local minimum. This brings me to the
                     first reason why we use mean squared error- because it makes J differentiable. </p>
                 <p>Let’s say we have a
-                    function $y = |x|$. At $x=0$, y is not differentiable. Since we use derivatives in gradient descent, it
+                    function $y = |x|$. At $x=0$, y is not differentiable. Since we use derivatives in gradient descent,
+                    it
                     is important that our cost function is differentiable for all x. When using mean square error, the
                     estimator and variance become linear, which gives it much nicer properties. </p>
                 <p>When I say linear, I
@@ -117,17 +119,23 @@
                     the vectors together, but there are a few rules: </p>
                 <p>
                 <ol>
-                    <li>The inner product has conjugate symmetry: $\langle {x, y} \rangle = \bar {\langle {y, x} \rangle}$</li>
-                <li>The inner product is linear in the first argument: $\langle {ax, y} \rangle = a\langle{x,y}\rangle$ <br>
-                $\langle {x+z, y} \rangle = \langle{x,y}\rangle + \langle{z,y}\rangle$</li>
-                <li> The linear product has positive-definiteness.</li>
+                    <li>The inner product has conjugate symmetry: <br>$\langle {x, y} \rangle = \bar{\langle {y, x}
+                        \rangle}$
+                    </li>
+                    <li>The inner product is linear in the first argument: <br>$\langle {ax, y} \rangle =
+                        a\langle{x,y}\rangle$ <br>
+                        $\langle {x+z, y} \rangle = \langle{x,y}\rangle + \langle{z,y}\rangle$
+                    </li>
+                    <li> The linear product has positive-definiteness: <br>$\langle {x,x}\rangle \geq 0$<br>$\langle
+                        {x,x}\rangle = 0 \Leftrightarrow x=0$
+                    </li>
                 </ol>
                 The euclidean distance between two vectors is
                 the inner product between the difference between them and itself. The mean squared error can now be
                 defined as an inner product.</p>
                 <p>
                     So there you go! That’s why we use mean square error instead of absolute value. It’s mostly
-                    conveniences, which actually help quite a lot. Thanks for watching!</p>
+                    conveniences, which actually help quite a lot. Thanks for reading!</p>
 
 
             </div>
