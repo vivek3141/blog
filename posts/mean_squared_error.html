@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Vivek Verma's Blog</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
+          type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+          rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/clean-blog.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="../index.html">Vivek Verma</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('../img/post-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="post-heading">
+                    <h1>Why is Mean Squared Error used in Machine Learning?</h1>
+                    <h2 class="subheading">Various reasons for why the cost function uses Mean Squared Error</h2>
+                    <span class="meta">Posted by
+                <a href="#">Vivek Verma</a>
+                on January 15, 2019</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <p>
+                    If you've ever tried doing machine learning, you probably saw that the cost function uses mean
+                    squared error
+                    instead of just measuring the distance. There are various reasons why this is done, but I just want
+                    to go over how gradient descent works before we talk about them. </p>
+                <p>So, let’s see how our cost function
+                    could look. Our goal is to obtain a local minimum. The way gradient descent works is
+                    by taking small steps in the negative direction of the slope. You can see how this works - the
+                    downhill direction is always the opposite direction of the slope.</p>
+                <p> Computing these steps depends on a
+                    constant, called the learning rate. We can iterate some number of times and keep doing these steps.
+                    Using partial derivatives, we can calculate the slope at each of the points and adjust accordingly.
+                    Let’s say alpha is our learning rate. Our
+                    equations for gradient
+                    descent would look like this.</p>
+                <img class="img-fluid" src="https://cdn-images-1.medium.com/max/1600/0*8yzvd7QZLn5T1XWg.jpg">
+                <p> You
+                    can see how we subtract the derivative at each of the points. We can keep performing these steps,
+                    and if we have a good learning rate, we should converge to a local minimum. This brings me to the
+                    first reason why we use mean squared error- because it makes J differentiable. </p>
+                <p>Let’s say we have a
+                    function y = |x|. At x=0, y is not differentiable. Since we use derivatives in gradient descent, it
+                    is important that our cost function is differentiable for all x. When using mean square error, the
+                    estimator and variance become linear, which gives it much nicer properties. </p>
+                <p>When I say linear, I
+                    don’t mean a function that is expressed by f(x) = mx +b. In linear algebra, a linear function is
+                    something that satisfies the following properties - It preserves addition and scalar multiplication.
+                    This basically means that f(x + y) = f(x) + f(y) and f(a * x) = a * f(x). </p>
+                <p>Another important thing is
+                    that the square error is the inner product between the difference of the vectors and itself. An
+                    inner product is similar to the dot product, where you project a vector along another one and add
+                    the vectors together, but there are a few rules: </p><p><ol>
+                <li>The inner product has conjugate symmetry</li><li>linear
+                    in the first argument and has positive-definiteness. </ol>The euclidean distance between two vectors is
+                    the inner product between the difference between them and itself. The mean squared error can now be
+                    defined as an inner product.</p>
+                <p>
+                    So there you go! That’s why we use mean square error instead of absolute value. It’s mostly
+                    conveniences, which actually help quite a lot. Thanks for watching!</p>
+
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <ul class="list-inline text-center">
+                    <li class="list-inline-item">
+                        <a href="https://youtube.com/vcubingx">
+                  <span class="fa-stack fa-lg">
+
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                  </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://github.com/vivek3141">
+                  <span class="fa-stack fa-lg">
+
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://twitch.tv/vcubingx">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                          <i class="fab fa-twitch fa-stack-1x fa-inverse"></i>
+                  </span>
+                        </a>
+                    </li>
+
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; Vivek Verma 2018</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="../js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
