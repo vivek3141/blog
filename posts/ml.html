@@ -21,7 +21,13 @@
 
     <!-- Custom styles for this template -->
     <link href="../css/clean-blog.min.css" rel="stylesheet">
-
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'
+            async></script>
 </head>
 
 <body>
@@ -53,7 +59,8 @@
 </nav>
 
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('https://cdn-images-1.medium.com/max/1200/1*ZkZS46p7Lbw-PDBtPMfEEw.jpeg')">
+<header class="masthead"
+        style="background-image: url('https://cdn-images-1.medium.com/max/1200/1*ZkZS46p7Lbw-PDBtPMfEEw.jpeg')">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -113,21 +120,21 @@
                     sample data points, with the price of crude oil and the price of petroleum. If you plot them, it
                     looks like we could fit a line that would let us roughly predict the price of petroleum. But, how
                     would we do that? Let’s get some terminology out of the way. Our model, or out hypothesis, which
-                    I’ll call h(x) is defined as 0+1x. X subscript i and Y subscript i refer to the ith point in our
+                    I’ll call $h(x)$ is defined as $0+1x$. X subscript i and Y subscript i refer to the ith point in our
                     dataset. First, let's think about how we can calculate our error, or how bad our model is. We can
                     take the distance between our line and the actual point and average it over all data points. When
                     this is being done, we typically use a square rather than an absolute value, and I won’t go over why
                     in this video, but I’ve left a few links about this in the description below. The ½ is there for
                     reasons we will talk about shortly, so hang on. So, our error function, which is called a cost
-                    function or J(Theta0 and Theta1), takes in 2 numbers for Theta_0 and Theta_1 and outputs a number
+                    function or $J(\Theta_0, \Theta_1)$, takes in 2 numbers for $Theta_0$ and $Theta_1$ and outputs a number
                     that shows how bad our model is. The end goal is to minimize this function. People who have studied
                     calculus might get a ding in their head, and students who have studied multivariable calculus might
-                    know that you could set the gradient of J to 0 and calculate the values. However, there are a few
+                    know that you could set the $\nabla J = 0$ and calculate the values. However, there are a few
                     minimizing algorithms that could be much more computationally efficient. Not to mention, calculating
-                    the partial derivatives may not always be possible if h(x) is a much more complex function. The
+                    the partial derivatives may not always be possible if $h(x)$ is a much more complex function. The
                     algorithm we’ll be using is called gradient descent. Basically, this is an algorithm that keeps
                     repeating itself, until it reaches a local minimum. The way it works is taking steps in a downward
-                    direction until it reaches a local minimum. Using this algorithm we can get our values for h(x). The
+                    direction until it reaches a local minimum. Using this algorithm we can get our values for $h(x)$. The
                     learning rate is an important term. It describes how large the steps should be. Smaller steps could
                     result in very slow optimization, and larger steps could miss the minimum. Picking the right
                     learning rate is essential to getting a good model. There are many different minimizing algorithms,
@@ -159,12 +166,13 @@
                     below 0.5 its not. Now, what we need to do is define our cost function. Then, we can use a
                     minimizing algorithm like gradient descent to get our model. Instead of Mean Squared Error, which is
                     what we used for linear regression, we will use something called cross entropy, which looks like
-                    this. This is how we can define it. It’s defined as -log(h(x)) if y is 1 and -log(1-h(x)) if y is 0.
+                    this. This is how we can define it. It’s defined as $-log(h(x))$ if y is 1 and $-log(1-h(x))$ if y is 0.
                     This can be condensed to this. We can now use gradient descent to find the optimal values for
                     theta.</p>
                 <p>Now, lets go over some code. First let’s import the required libraries. Then, we create our random
-                    dataset, that can be split over the line y=x, after that we fit the model, and graph it. We can also
+                    dataset, that can be split over the line $y=x$, after that we fit the model, and graph it. We can also
                     test for accuracy.</p>
+                
                 <p></p>
                 <p>The next classifier I’m going to be going over is probably the most powerful one. You’ve probably
                     heard about it, it’s called a neural network. Basically, it tries to mimic a human brain by using
