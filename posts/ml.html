@@ -25,6 +25,11 @@
   MathJax.Hub.Config({
     tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
   });
+
+
+
+
+
     </script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'
             async></script>
@@ -114,19 +119,23 @@
                     based on a few variables, like predicting the price of stocks, but classification is classifying
                     into defined groups, like classifying a picture as a car or not.</p>
                 <p></p>
+                <h3>Linear Regression</h3>
                 <p>The first supervised learning model we’re going to be talking about is linear regression. If you’ve
                     ever taken an Algebra II class, you probably know what that is. But, let’s just go over it. Let’s
                     say you want to predict the price of petroleum based on the price of crude oil. You may gather some
                     sample data points, with the price of crude oil and the price of petroleum. If you plot them, it
-                    looks like we could fit a line that would let us roughly predict the price of petroleum. But, how
+                    looks like we could fit a line that would let us roughly predict the price of petroleum. </p>
+                <img class="img-fluid"
+                     src="https://raw.githubusercontent.com/vivek3141/ml/master/images/linear_regression.png">
+                <p>But, how
                     would we do that? Let’s get some terminology out of the way. Our model, or out hypothesis, which
-                    I’ll call $h(x)$ is defined as $0+1x$. X subscript i and Y subscript i refer to the ith point in our
+                    I’ll call $h(x)$ is defined as $0+1x$. $x_i$ and $y_i$ refer to the ith point in our
                     dataset. First, let's think about how we can calculate our error, or how bad our model is. We can
                     take the distance between our line and the actual point and average it over all data points. When
-                    this is being done, we typically use a square rather than an absolute value, and I won’t go over why
-                    in this video, but I’ve left a few links about this in the description below. The ½ is there for
-                    reasons we will talk about shortly, so hang on. So, our error function, which is called a cost
-                    function or $J(\Theta_0, \Theta_1)$, takes in 2 numbers for $Theta_0$ and $Theta_1$ and outputs a number
+                    this is being done, we typically use a square rather than an absolute value, and you can find out
+                    why <a href="https://youtu.be/CeBe2wLI8x0">here</a>. So, our error function, which is called a cost
+                    function or $J(\Theta_0, \Theta_1)$, takes in 2 numbers for $Theta_0$ and $Theta_1$ and outputs a
+                    number
                     that shows how bad our model is. The end goal is to minimize this function. People who have studied
                     calculus might get a ding in their head, and students who have studied multivariable calculus might
                     know that you could set the $\nabla J = 0$ and calculate the values. However, there are a few
@@ -134,19 +143,31 @@
                     the partial derivatives may not always be possible if $h(x)$ is a much more complex function. The
                     algorithm we’ll be using is called gradient descent. Basically, this is an algorithm that keeps
                     repeating itself, until it reaches a local minimum. The way it works is taking steps in a downward
-                    direction until it reaches a local minimum. Using this algorithm we can get our values for $h(x)$. The
+                    direction until it reaches a local minimum. Using this algorithm we can get our values for $h(x)$.
+                    The
                     learning rate is an important term. It describes how large the steps should be. Smaller steps could
                     result in very slow optimization, and larger steps could miss the minimum. Picking the right
                     learning rate is essential to getting a good model. There are many different minimizing algorithms,
                     which are far more complex, but those could be used too.</p>
+                <img class="img-fluid" src="https://i.imgur.com/k26iY9Y.png">
                 <p></p>
                 <p>Now, let’s go over some code. First lets import out numpy library, which is used for doing operations
                     on matrices. Next, we’ll import the required module from the library to do linear regression. Let’s
                     randomly generate our data. What this is doing is randomly generating 50 data points from 0 to 1 and
                     multiplying by 10 to get random real numbers from 0 to 10, then converting to integer. And back to a
                     numpy array. Then, we’ll create an object of our class and call the fit function and set graph=True
-                    to visualize the data. Here's the result. We can also run l.predict() to pass data through our
+                    to visualize the data. Here's the result. We can also run <code>l.predict()</code> to pass data
+                    through our
                     hypothesis.</p>
+                <code class="prettyprint">
+import numpy as np<br>
+from ml.linear_regression import LinearRegression<br>
+# Randomly generating the data<br>
+x = np.array(list(map(int, 10*np.random.random(50))))<br>
+y = np.array(list(map(int, 10*np.random.random(50))))<br>
+l = LinearRegression()<br>
+l.fit(data=x, labels=y, graph=True)<br>
+                </code>
                 <p></p>
                 <p>Regression doesn't have to be a line. We can do quadratic, cubic, quartic, exponential, logarithmic
                     or any function. It’s basically the same thing as linear regression, but instead of using a line, we
@@ -166,13 +187,15 @@
                     below 0.5 its not. Now, what we need to do is define our cost function. Then, we can use a
                     minimizing algorithm like gradient descent to get our model. Instead of Mean Squared Error, which is
                     what we used for linear regression, we will use something called cross entropy, which looks like
-                    this. This is how we can define it. It’s defined as $-log(h(x))$ if y is 1 and $-log(1-h(x))$ if y is 0.
+                    this. This is how we can define it. It’s defined as $-log(h(x))$ if y is 1 and $-log(1-h(x))$ if y
+                    is 0.
                     This can be condensed to this. We can now use gradient descent to find the optimal values for
                     theta.</p>
                 <p>Now, lets go over some code. First let’s import the required libraries. Then, we create our random
-                    dataset, that can be split over the line $y=x$, after that we fit the model, and graph it. We can also
+                    dataset, that can be split over the line $y=x$, after that we fit the model, and graph it. We can
+                    also
                     test for accuracy.</p>
-                
+
                 <p></p>
                 <p>The next classifier I’m going to be going over is probably the most powerful one. You’ve probably
                     heard about it, it’s called a neural network. Basically, it tries to mimic a human brain by using
@@ -272,6 +295,8 @@
 
 <!-- Custom scripts for this template -->
 <script src="../js/clean-blog.min.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
 
 </body>
 
