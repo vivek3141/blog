@@ -31,6 +31,8 @@
 
 
 
+
+
     </script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'
             async></script>
@@ -181,7 +183,8 @@
                 <p>The first classification algorithm I want to talk about is logistic regression. Imagine you want to
                     classify a flower as an Iris or not based on the size of the sepal and the size of the petal. Our
                     data would have two features for the sizes and 1 or 0 for our y based on if the flower is an iris or
-                    not. Our hypothesis can look like $\sigma(\Theta_0 + \Theta_1 x_1 + \Theta_2 x_2). What the sigmoid lets us do
+                    not. Our hypothesis can look like $\sigma(\Theta_0 + \Theta_1 x_1 + \Theta_2 x_2)$. What the sigmoid
+                    lets us do
                     is make our hypothesis output a probability of whether our flower is a Iris or not. We can set a
                     threshold, say 0.5 where if the hypothesis outputs above or equal to 0.5, its an Iris and if is
                     below 0.5 its not. Now, what we need to do is define our cost function. Then, we can use a
@@ -195,11 +198,29 @@
                     dataset, that can be split over the line $y=x$, after that we fit the model, and graph it. We can
                     also
                     test for accuracy.</p>
-
+                <code class="prettyprint">
+                    from ml.logistic_regression import LogisticRegression<br>
+                    import matplotlib.pyplot as plt<br>
+                    from ml.random import yx2features<br>
+                    from ml.graph.lr import scatter_two_features, plot_line<br>
+                    <br>
+                    data, labels = yx2features()<br>
+                    <br>
+                    lr = LogisticRegression(features=2)<br>
+                    lr.fit(data=data, labels=labels, graph=True, lr=0.01, steps=200, to_print=False)<br>
+                    <br>
+                    w, b = lr.get_values()
+                    <br>
+                    scatter_two_features(data, labels)<br>
+                    plot_line(w, b)<br>
+                    plt.show()<br>
+                    <br>
+                    lr.test(data=data, labels=labels)<br>
+                </code>
                 <p></p>
                 <p>The next classifier I’m going to be going over is probably the most powerful one. You’ve probably
                     heard about it, it’s called a neural network. Basically, it tries to mimic a human brain by using
-                    layers. I’m not going to go over the math behind all of this, but I’ve left a fantastic video on it.
+                    layers. You can learn the maths behind it <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">here</a>.
                     You don’t need to know the math behind it to use it but it does help a lot. A neural network takes
                     multiple inputs and can output multiple probabilities for different classes. Let’s say I want to
                     classify a handwritten digit. I would have a image and input the pixel values into the neural
