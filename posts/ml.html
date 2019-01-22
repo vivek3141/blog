@@ -33,6 +33,9 @@
 
 
 
+
+
+
     </script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'
             async></script>
@@ -220,7 +223,8 @@
                 <p></p>
                 <p>The next classifier I’m going to be going over is probably the most powerful one. You’ve probably
                     heard about it, it’s called a neural network. Basically, it tries to mimic a human brain by using
-                    layers. You can learn the maths behind it <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">here</a>.
+                    layers. You can learn the maths behind it <a
+                            href="https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">here</a>.
                     You don’t need to know the math behind it to use it but it does help a lot. A neural network takes
                     multiple inputs and can output multiple probabilities for different classes. Let’s say I want to
                     classify a handwritten digit. I would have a image and input the pixel values into the neural
@@ -229,11 +233,34 @@
                     by looking at how wrong it was for each training example and adjust itself accordingly. We can use
                     several activation functions for the inner layers, but the most common these days is ReLu which
                     looks like this.</p>
+                <img src="https://i.imgur.com/f4HwqnC.jpg" class="img-fluid">
                 <p></p>
                 <p>Now, let's build a handwritten digit classifier. First we import the required modules. Then, we
                     create the object, specifying how many neurons we want in the middle layers and our activation
                     function. Then, we can train it using out data, and then test it. We get an accuracy of about 92%,
                     which may not seem bad, but that 8% makes up for a large amount of error. We can do better.</p>
+                <code class="prettyprint">
+                    from ml.nn import NeuralNetwork<br>
+                    from ml.activation import relu<br>
+                    from tensorflow.examples.tutorials.mnist import input_data<br>
+                    <br>
+                    mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)<br>
+                    <br>
+                    n = NeuralNetwork(<br>
+                    layers=[20],<br>
+                    inp=784,<br>
+                    activation=relu,<br>
+                    out=10,<br>
+                    )<br>
+                    <br>
+                    # n.load("model.pkl")<br>
+                    <br>
+                    n.fit(50000, data=mnist.train.images, labels=mnist.train.labels, lr=0.0001, graph=True)<br>
+                    <br>
+                    n.test(mnist.test.images, mnist.test.labels) # 91.52%, can be better!<br>
+                    <br>
+                    # n.save("model.pkl")<br>
+                </code>
                 <p></p>
                 <p>There are many different types of neural networks but the one I’m going to talk about now is a
                     convolutional neural network. This type of neural network is very effective on images, which is good
@@ -241,6 +268,32 @@
                     First, I’m going to import the modules, then make the object, setting a few constants. After that,
                     I’m going to train the model and test it. Based on how long we train it for, we can get an accuracy
                     of around 98%, which is way better.</p>
+                <code class="prettyprint">
+                    from ml.cnn import CNN2D<br>
+                    from ml.data import mnist<br>
+                    from ml.data import get_predicted_value<br>
+                    <br>
+                    c = CNN2D(<br>
+                    layers=2,<br>
+                    inp=784,<br>
+                    out=10,<br>
+                    kernel_size=[5, 5],<br>
+                    pool_size=[2, 2],<br>
+                    filters=[32, 64],<br>
+                    dimensions=[28, 28],<br>
+                    )<br>
+                    <br>
+                    c.fit(data=mnist.train.images, labels=mnist.train.labels, lr=0.001, epochs=200, save_path="./model")<br>
+                    <br>
+                    # c.load("./model")<br>
+                    <br>
+                    c.test(data=mnist.test.images[0:100], labels=mnist.test.labels[0:100])<br>
+                    <br>
+                    predicted = c.predict(mnist.test.images[0], transpose=True)<br>
+                    <br>
+                    print("Predicted Value: {}".format(get_predicted_value(predicted['probabilities'])))<br>
+                    print("Actual Value: {}".format(mnist.test.labels[0]))<br>
+                </code>
                 <p></p>
                 <h2 class="section-heading">Unsupervised learning</h2>
                 <p></p>
