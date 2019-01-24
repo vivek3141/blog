@@ -86,7 +86,10 @@
                     important. It’s the act of information gathering. This could mean things like what OS the server is
                     running, and other things. So, if we look at the url up top, we can go to the index of that webpage,
                     and even though we get a 401 response, we get something critical - At the bottom it shows us Red Hat
-                    Linux, which tells us that the server is running linux.</p>
+                    Linux, which tells us that the server is running linux.
+                    Example for Apache:</p>
+                <img src="https://www.solvusoft.com/blog/wp-content/uploads/2013/09/Protocol-HTTP-403-Forbidden-SolvuSoft1.png"
+                     class="img-fluid" alt="">
                 <h2 class="section-heading">Defining The problem</h2>
                 <p>Just for this case, I’m going to create a webpage that can accept a code, and validates it. For the
                     purpose of this video, I’m going to print any error messages. The backend for this website is
@@ -99,6 +102,7 @@
                     is about 4 billion. If each request takes a second to establish connection and send the form, which
                     takes over 136 years. In reality, if they were using 6 characters it would take about 9 hundred
                     thousand years. This makes trying every possible code not a valid option.</p>
+                <img src="http://imgur.com/Oi2ltle" class="img-fluid" alt="">
                 <h2 class="section-heading">SQL Injection</h2>
                 <p>Let’s try to be a little bit more smart. This is how the structure of the program could look. We have
                     javascript and html on our browser, a flask api that connects to a SQL Database.</p>
@@ -179,6 +183,8 @@
 
 <!-- Custom scripts for this template -->
 <script src="../js/clean-blog.min.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
 
 </body>
 
