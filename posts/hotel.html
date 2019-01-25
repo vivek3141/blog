@@ -93,8 +93,8 @@
                 <h2 class="section-heading">Defining The problem</h2>
                 <p>Just for this case, I’m going to create a webpage that can accept a code, and validates it. For the
                     purpose of this video, I’m going to print any error messages. The backend for this website is
-                    written using Flask and SQlite, for the simplicity of this video. If you want to try it yourself, I
-                    left a link in the description to do so.</p>
+                    written using Flask and SQlite, for the simplicity of this video. If you want to try it yourself,
+                    you can do it <a href="https://github.com/vivek3141/sql-injection-demo">here</a>.</p>
                 <h2 class="section-heading">Brute Force</h2>
                 <p>The first thing that comes to mind would be to try every combination. However, this is definitely not
                     a valid option. In our case, we have a string with a length of 4, but in a real case, the code would
@@ -102,7 +102,7 @@
                     is about 4 billion. If each request takes a second to establish connection and send the form, which
                     takes over 136 years. In reality, if they were using 6 characters it would take about 9 hundred
                     thousand years. This makes trying every possible code not a valid option.</p>
-                <img src="http://imgur.com/Oi2ltle" class="img-fluid" alt="">
+                <img src="http://i.imgur.com/Oi2ltle.gif" class="img-fluid" alt="">
                 <h2 class="section-heading">SQL Injection</h2>
                 <p>Let’s try to be a little bit more smart. This is how the structure of the program could look. We have
                     javascript and html on our browser, a flask api that connects to a SQL Database.</p>
