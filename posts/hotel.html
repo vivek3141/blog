@@ -15,6 +15,9 @@
 
 
 
+
+
+
     </script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'
             async></script>
@@ -140,9 +143,21 @@
                     );
                 </code>
                 <p>We can make queries with the SELECT statement. This is the most important one for us. For
-                    example, we can select all from a table. We can also select with some condition. In this case the
-                    select statement for our website could look like this. This changes based on what is inputted in the
-                    text field. The way we test for vulnerability is by entering the escape character ‘. You can see how
+                    example, we can select all from a table. </p>
+                <code class="prettyprint">
+                    SELECT * FROM 'Codes';
+                </code>
+                <p>We can also select with some condition. In this case the
+                    select statement for our website could look like this. </p>
+                <code class="prettyprint">
+                    SELECT * FROM 'Codes' WHERE Code='1XFF';
+                </code>
+                <p>This changes based on what is inputted in the
+                    text field. The way we test for vulnerability is by entering the escape character ‘. </p>
+                <code class="prettyprint">
+                    SELECT * FROM 'Codes' WHERE Code=''';
+                </code>
+                <p>You can see how
                     this statement would throw an error - The quote never completes itself. If the text is inputted into
                     the sql statement without any validation, we can manipulate the statement to always return
                     something. Such a SQL statement could look like this. (select * from data where 1= 1). If we could
