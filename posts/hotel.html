@@ -8,7 +8,16 @@
     <meta name="author" content="">
 
     <title>Hacking a Hotel's System for Free Wifi</title>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
 
+
+
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'
+            async></script>
     <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -98,7 +107,8 @@
                 <h2 class="section-heading">Brute Force</h2>
                 <p>The first thing that comes to mind would be to try every combination. However, this is definitely not
                     a valid option. In our case, we have a string with a length of 4, but in a real case, the code would
-                    be 6 or mode characters. Let’s say we are using ASCII. The number of possible codes is 256^4, which
+                    be 6 or mode characters. Let’s say we are using ASCII. The number of possible codes is $256^4$,
+                    which
                     is about 4 billion. If each request takes a second to establish connection and send the form, which
                     takes over 136 years. In reality, if they were using 6 characters it would take about 9 hundred
                     thousand years. This makes trying every possible code not a valid option.</p>
@@ -110,11 +120,26 @@
                     tables with rows and columns, and each of the columns have a name with the rows being the data. In
                     this case, we can have a database with all the codes possible, which could look like this. SQL is a
                     language that’s used for manipulating databases. It's incredibly popular, and our website uses it
-                    too. Let’s go over a few SQL statements. The CREATE TABLE creates a table, like creating a
+                    too. Let’s go over a few SQL statements. </p>
+                <p>The CREATE TABLE creates a table, like creating a
                     spreadsheet in excel or google sheets. Here, you can specify the names for all the columns and the
                     type of the data that goes in like INTEGER or TEXT. There is also something called private key. This
-                    means that the field is always unique. The INSERT INTO statement allows us to insert data into our
-                    database. We can make queries with the SELECT statement. This is the most important one for us. For
+                    means that the field is always unique. </p>
+                <code class="prettyprint">
+                    CREATE TABLE 'Codes' (<br>
+                    &emsp;'Room Number' INTEGER,<br>
+                    &emsp;'Code' TEXT(4)<br>
+                    );
+                </code>
+                <p>The INSERT INTO statement allows us to insert data into our
+                    database. </p>
+                <code class="prettyprint">
+                    INSERT INTO 'Codes'<br>
+                    &emsp;VALUES(,<br>
+                    &emsp;703, '1XFF'<br>
+                    );
+                </code>
+                <p>We can make queries with the SELECT statement. This is the most important one for us. For
                     example, we can select all from a table. We can also select with some condition. In this case the
                     select statement for our website could look like this. This changes based on what is inputted in the
                     text field. The way we test for vulnerability is by entering the escape character ‘. You can see how
