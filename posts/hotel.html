@@ -18,6 +18,9 @@
 
 
 
+
+
+
     </script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'
             async></script>
@@ -160,15 +163,27 @@
                 <p>You can see how
                     this statement would throw an error - The quote never completes itself. If the text is inputted into
                     the sql statement without any validation, we can manipulate the statement to always return
-                    something. Such a SQL statement could look like this. (select * from data where 1= 1). If we could
+                    something. Such a SQL statement could look like this. </p>
+                <code class="prettyprint">
+                    SELECT * FROM 'Codes' WHERE 1=1;
+                </code>
+                <p>If we could
                     get the SQL statement to look like this we would have successfully accomplished what we are trying
-                    to do. If we insert something like this, it successfully completes the statement. Let’s say that it
-                    could only be a number, the statement could look like this. Although we did this manually there are
+                    to do. If we insert something like this, it successfully completes the statement. </p>
+                <code class="prettyprint">
+                    SELECT * FROM 'Codes' WHERE Code='a' OR 1=1 OR 'a';
+                </code>
+                <p>Let’s say that it
+                    could only be a number, the statement could look like this. </p>
+                <code class="prettyprint">
+                    SELECT * FROM 'Codes' WHERE Code=1 OR 1=1;
+                </code>
+                <p>Although we did this manually there are
                     a lot of great tools to do all the work for us. For the Kali Linux distribution, you can use SQLMAP
                     or SQLNinja to find which text fields are vulnerable, and perform the injection. There is also
                     another tool called JSQL Injection which can make automated SQL Injections. Keep In mind, do not do
-                    this on any website in the real world, it is highly illegal. This video was for educational purposes
-                    only. Be an ethical hacker not a cracker.</p>
+                    this on any website in the real world. This post was for educational purposes
+                    only.</p>
                 <p>
                 </p>
             </div>
